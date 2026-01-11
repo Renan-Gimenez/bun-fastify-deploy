@@ -11,6 +11,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifyApiReference from "@scalar/fastify-api-reference";
 
 import { getUsersRoute } from "./routes/get-users.route";
+import { healthRoute } from "./routes/health-route";
 
 export const app = fastify({
   routerOptions: {
@@ -40,3 +41,4 @@ app.register(fastifyApiReference, {
 });
 
 app.register(getUsersRoute, { prefix: "/users" });
+app.register(healthRoute, { prefix: "/health" });
