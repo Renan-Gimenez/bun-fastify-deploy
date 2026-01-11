@@ -12,7 +12,11 @@ import fastifyApiReference from "@scalar/fastify-api-reference";
 
 import { getUsersRoute } from "./routes/get-users.route";
 
-export const app = fastify().withTypeProvider<ZodTypeProvider>();
+export const app = fastify({
+  routerOptions: {
+    ignoreTrailingSlash: true,
+  },
+}).withTypeProvider<ZodTypeProvider>();
 
 app.register(fastifyCors, {
   origin: "*",
